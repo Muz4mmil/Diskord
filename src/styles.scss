@@ -277,9 +277,11 @@ body{
 }
 
 .credit{
-    position: absolute;
-    bottom: 8px;
-    right: 10px;
+    // position: absolute;
+    // top: 8px;
+    // right: 10px;
+    margin-left: auto;
+    margin-right: 10px;
     font-size: 12px;
     text-decoration: none;
     font-style: normal;
