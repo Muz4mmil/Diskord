@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { auth, db } from '../firbase-config';
 
-export default function Chats({room}) {
+export default function Chats({room, signUserOut}) {
 
     const [newMessage, setNewMessage] = useState("")
     const [messages, setMessages] = useState([])
@@ -62,6 +62,10 @@ export default function Chats({room}) {
             <input placeholder='Enter Message' className="new-message-input" onChange={(e)=> setNewMessage(e.target.value)} value={newMessage}/>
             <button type="submit" className='send-button'><i class="material-symbols-rounded">send</i></button>
         </form>
+
+        <div className="sign-out">
+            <button onClick={signUserOut}>Logout</button>
+        </div>
     </div>
   )
 }

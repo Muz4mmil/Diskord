@@ -34,7 +34,7 @@ function App() {
   
   return (
     <>
-      { room ? ( <Chats room={room}/> ) : (
+      { room ? ( <Chats room={room} signUserOut={signUserOut}/> ) : (
         <div className="room">
           <p>Enter Room Name</p>
           <input ref={roomInputRef}/>
@@ -44,10 +44,6 @@ function App() {
             }}>Enter Room</button>
         </div>
       )}
-
-      <div className="sign-out">
-        <button onClick={signUserOut}>Sign out</button>
-      </div>
     </>)
 }
 
