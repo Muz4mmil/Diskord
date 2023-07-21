@@ -44,6 +44,8 @@ function App() {
             }}>Enter Room</button>
         </div>
       )}
+
+      <a href="https://muz4mmil.github.io" class="credit" target="_blank">- by @Muzammil</a> 
     </>)
 }
 

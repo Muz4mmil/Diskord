@@ -169,6 +169,17 @@ body{
         overflow-y: scroll;
         height: calc(100% - 150px);
 
+        &::-webkit-scrollbar {
+            width: 3px;
+            margin-left: auto;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: rgba(47, 55, 126, 0.5);;
+            border-radius: 2px;
+          }
+
+
         .message{
             width: max-content;
             display: flex;
@@ -182,7 +193,7 @@ body{
                 font-size: 12px;
                 font-weight: 600;
                 // opacity: .7;
-                color: rgba(47, 55, 126, 0.753);;
+                color: rgba(47, 55, 126, 0.753);
             }
         }
 
@@ -225,4 +236,14 @@ body{
             color: white;
         }
     }
+}
+
+.credit{
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    font-style: normal;
+    color: white;
 }
