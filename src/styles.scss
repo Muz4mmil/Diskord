@@ -277,13 +277,12 @@ body{
 }
 
 .credit{
-    // position: absolute;
-    // top: 8px;
-    // right: 10px;
-    margin-left: auto;
-    margin-right: 10px;
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
     font-size: 12px;
     text-decoration: none;
     font-style: normal;
     color: white;
+    opacity: .7;
 }
