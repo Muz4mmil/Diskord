@@ -34,7 +34,7 @@ function App() {
   
   return (
     <>
-      { room ? ( <Chats room={room} signUserOut={signUserOut}/> ) : (
+      { room ? ( <Chats room={room} setRoom={setRoom} signUserOut={signUserOut}/> ) : (
         <div className="room">
           <p>Enter Room Name</p>
           <input ref={roomInputRef}/>

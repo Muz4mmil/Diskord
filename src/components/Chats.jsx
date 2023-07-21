@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { auth, db } from '../firbase-config';
 
-export default function Chats({room, signUserOut}) {
+export default function Chats({room, setRoom, signUserOut}) {
 
     const [newMessage, setNewMessage] = useState("")
     const [messages, setMessages] = useState([])
@@ -53,7 +53,7 @@ export default function Chats({room, signUserOut}) {
         <div className="header"><h2>Welcome to room <br /> {room}</h2></div>
         <div className='messages' ref={messagesContainerRef}>
             {messages.map((message)=>
-            <div className={"message " + ( message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
+            <div className={"message animate__animated animate__fadeInUp animate__faster " + ( message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
                 <span className='user'>{message.user.split(" ")[0]} : </span>{message.text}
             </div>
             )}
@@ -65,6 +65,9 @@ export default function Chats({room, signUserOut}) {
 
         <div className="sign-out">
             <button onClick={signUserOut}>Logout</button>
+        </div>
+        <div className="room-out">
+            <button onClick={() => setRoom(null)}>Leave</button>
         </div>
     </div>
   )
