@@ -25,7 +25,6 @@ export default function Chats({room, setRoom, signUserOut}) {
             setMessages(messages)
 
         })
-
         return ()=> unsuscribe();
     }, [])
 
