@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,800;1,200&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,15 +10,15 @@
 $backgroundMain : linear-gradient(110.6deg, rgb(184, 142, 252) 2.2%, rgb(104, 119, 244) 100.2%);
 
 
-body{
+body {
     background: $backgroundMain;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100dvh;
 }
 
-#root{
+#root {
     height: 100%;
     width: 100%;
     display: flex;
@@ -27,27 +27,28 @@ body{
     justify-content: center;
 }
 
-.auth{
+.auth {
     padding: 20px 20px;
     background: white;
     border-radius: 16px;
 
-    h1{
+    h1 {
         color: rgb(35, 30, 44);
         font-weight: 700;
         font-size: 26px;
         padding: 0px 10px;
     }
 
-    form{
+    form {
         display: flex;
         flex-direction: column;
         margin: 20px auto;
 
-        label{
+        label {
             margin-left: 4px;
         }
-        input{
+
+        input {
             width: 270px;
             padding: 8px;
             font-size: 16px;
@@ -57,7 +58,7 @@ body{
         }
     }
 
-    .button-main{
+    .button-main {
         background: $backgroundMain;
         border: none;
         padding: 10px;
@@ -68,19 +69,20 @@ body{
         border-radius: 10px;
         cursor: pointer;
 
-        i{
+        i {
             margin-right: 14px;
         }
 
-        &:hover{
+        &:hover {
             background: linear-gradient(110.6deg, rgb(203, 170, 255) 2.2%, rgb(125, 138, 255) 100.2%);
         }
     }
-    .google-btn{
+
+    .google-btn {
         margin-top: 20px;
     }
 
-    .switch-section{
+    .switch-section {
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -88,10 +90,11 @@ body{
         // margin-bottom: 10px;
         margin: 16px auto;
 
-        p{
+        p {
             font-size: 14px;
         }
-        button{
+
+        button {
             width: max-content;
             background: none;
             border: none;
@@ -103,7 +106,7 @@ body{
     }
 }
 
-.room{
+.room {
     padding: 20px;
     background: white;
     border-radius: 16px;
@@ -112,7 +115,7 @@ body{
     gap: 20px;
     width: 350px;
 
-    p{
+    p {
         color: rgb(35, 30, 44);
         font-weight: 700;
         font-size: 26px;
@@ -120,7 +123,7 @@ body{
         padding: 0px 10px;
     }
 
-    input{
+    input {
         color: rgb(35, 30, 44);
         font-weight: 500;
         font-size: 20px;
@@ -130,7 +133,7 @@ body{
         border-radius: 10px;
     }
 
-    button{
+    button {
         background: rgba(104, 118, 244, 0.2);
         border: none;
         padding: 10px;
@@ -141,14 +144,14 @@ body{
         border-radius: 10px;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             background: $backgroundMain;
             color: white;
         }
     }
 }
 
-.chats{
+.chats {
     position: relative;
     height: 90%;
     padding: 20px;
@@ -160,24 +163,24 @@ body{
 
     width: 400px;
 
-    @media (max-width: 420px){
+    @media (max-width: 420px) {
         width: 96%;
     }
 
-    .header{
+    .header {
         // text-align: center;
         padding-bottom: 10px;
         border-bottom: 2px solid rgba(211, 211, 211, 0.63);
     }
 
-    .new-message{
+    .new-message {
         position: absolute;
         bottom: 16px;
         display: flex;
         gap: 10px;
         width: calc(100% - 40px);
 
-        input{
+        input {
             width: 100%;
             color: rgb(35, 30, 44);
             font-weight: 500;
@@ -187,7 +190,7 @@ body{
             border-radius: 10px;
         }
 
-        button{
+        button {
             background: rgba(104, 118, 244, 0.2);
             border: none;
             color: rgb(104, 119, 244);
@@ -198,20 +201,19 @@ body{
             align-items: center;
             justify-content: center;
             padding: 0px 8px;
-            
-            i{
+
+            i {
                 font-size: 32px;
             }
-    
-            &:hover{
+
+            &:hover {
                 background: $backgroundMain;
                 color: white;
             }
         }
     }
 
-    .messages{
-        position: relative;
+    .messages {
         display: flex;
         flex-direction: column-reverse;
         // align-items: flex-start;
@@ -223,14 +225,15 @@ body{
             width: 3px;
             margin-left: auto;
         }
-        
+
         &::-webkit-scrollbar-thumb {
-            background: rgba(47, 55, 126, 0.5);;
+            background: rgba(47, 55, 126, 0.5);
+            ;
             border-radius: 2px;
-          }
+        }
 
 
-        .message{
+        .message {
             width: max-content;
             max-width: 90%;
             display: flex;
@@ -240,7 +243,7 @@ body{
             padding: 2px 10px 4px;
             overflow-wrap: break-word;
 
-            .user{
+            .user {
                 font-size: 12px;
                 font-weight: 600;
                 // opacity: .7;
@@ -248,27 +251,27 @@ body{
             }
         }
 
-        .current-user{
+        .current-user {
             margin-left: auto;
             margin-right: 4px;
             border-radius: 10px 10px 0 10px;
         }
 
-        .other-user{
+        .other-user {
             margin-right: auto;
             margin-left: 0;
-            border-radius: 0 10px 10px 10px ;
+            border-radius: 0 10px 10px 10px;
         }
     }
 
 }
 
-.sign-out{
+.sign-out {
     // display: none;
     position: absolute;
     right: 16px;
 
-    button{
+    button {
         background: rgba(104, 118, 244, 0.2);
         border: none;
         color: rgb(104, 119, 244);
@@ -280,25 +283,25 @@ body{
         align-items: center;
         justify-content: center;
         padding: 4px 10px;
-        
-        i{
+
+        i {
             font-size: 32px;
         }
 
-        &:hover{
+        &:hover {
             background: rgba(240, 128, 128, 0.8);
             color: white;
         }
     }
 }
 
-.room-out{
+.room-out {
     // display: none;
     position: absolute;
     right: 16px;
     top: 54px;
 
-    button{
+    button {
         background: rgba(104, 118, 244, 0.2);
         border: none;
         color: rgb(104, 119, 244);
@@ -310,12 +313,12 @@ body{
         align-items: center;
         justify-content: center;
         padding: 4px 10px;
-        
-        i{
+
+        i {
             font-size: 32px;
         }
 
-        &:hover{
+        &:hover {
             background: rgba(104, 118, 244, 0.767);
             // background: rgba(240, 128, 128, 0.8);
             color: white;
@@ -323,7 +326,7 @@ body{
     }
 }
 
-.credit{
+.credit {
     position: fixed;
     bottom: 8px;
     right: 10px;
@@ -335,12 +338,15 @@ body{
     z-index: 10;
 }
 
-.warning{
+.warning {
     position: absolute;
-    top: 0;
+    top: 100px;
+    left: 16px;
+    right: 16px;
+    z-index: 10;
     font-size: 10px;
     padding: 2px 6px;
-    color: gray;
-    background: rgb(247, 247, 247);
+    color: rgba(0, 0, 0, 0.74);
+    background: rgb(255, 245, 214);
     border-bottom: 2px solid #FFF;
 }

@@ -25,9 +25,9 @@ export default function AIChats({ room, setRoom, signUserOut }) {
         messages.push({ ...doc.data(), id: doc.id })
       })
 
-      if (messages.length == 0){
-        history.push({ role: 'user', parts: 'You are currently in a Chat app made by Muzammil (He is a web developer and a student), so while introducing yourself or responding to "hi", "hello" etc. you should mention Muzammil name and powered by Google\'s Gemini AI. and only if soemone asks about Muzammil, tell them that "he is a web developer and a student, click on his name in the the bottom right corner to know more about him". suggest this only if they ask about Muzammil'})
-        history.push({ role: 'model', parts: 'okay i will respond just like this and I will ask user to click on Muzammil\'s name only if they ask about him'})
+      if (messages.length == 0) {
+        history.push({ role: 'user', parts: 'You are currently in a Chat app made by Muzammil (He is a web developer and a student), so while introducing yourself or responding to "hi", "hello" etc. you should mention Muzammil name and powered by Google\'s Gemini AI. and only if soemone asks about Muzammil, tell them that "he is a web developer and a student, click on his name in the the bottom right corner to know more about him". suggest this only if they ask about Muzammil' })
+        history.push({ role: 'model', parts: 'okay i will respond just like this and I will ask user to click on Muzammil\'s name only if they ask about him' })
       }
 
       setMessages(messages)
@@ -96,15 +96,17 @@ export default function AIChats({ room, setRoom, signUserOut }) {
   return (
     <div className="chats">
       <div className="header"><h2>Chat with <br /> {room}</h2></div>
+      <div className="warning">
+        <p>Google's Gemini AI is at it's Early stage and this Project is still in beta. The bot might sometimes respond with blank or falsy messages</p>
+      </div>
+
       <div className='messages' ref={messagesContainerRef}>
         {messages.map((message) =>
           <div className={"message animate__animated animate__fadeInUp animate__faster " + (message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
             <span className='user'>{message.user.split(" ")[0]} : </span>{message.parts}
           </div>
         )}
-        <div className="warning">
-          <p>Google's Gemini AI is at it's Early stage and this Project is still in beta. The bot might sometimes respond with blank or falsy messages</p>
-        </div>
+
       </div>
       <form onSubmit={handleSubmit} className="new-message">
         <input placeholder='Enter Message' className="new-message-input" onChange={(e) => setNewMessage(e.target.value)} value={newMessage} />
