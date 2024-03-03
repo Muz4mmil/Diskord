@@ -272,6 +272,7 @@ body {
     right: 16px;
 
     button {
+        width: 70px;
         background: rgba(104, 118, 244, 0.2);
         border: none;
         color: rgb(104, 119, 244);
@@ -299,6 +300,38 @@ body {
     // display: none;
     position: absolute;
     right: 16px;
+    top: 54px;
+
+    button {
+        width: 70px;
+        background: rgba(104, 118, 244, 0.2);
+        border: none;
+        color: rgb(104, 119, 244);
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 10px;
+
+        i {
+            font-size: 32px;
+        }
+
+        &:hover {
+            background: rgba(104, 118, 244, 0.767);
+            // background: rgba(240, 128, 128, 0.8);
+            color: white;
+        }
+    }
+}
+
+.clear-ai {
+    // display: none;
+    position: absolute;
+    right: 90px;
     top: 54px;
 
     button {
@@ -349,4 +382,58 @@ body {
     color: rgba(0, 0, 0, 0.74);
     background: rgb(255, 245, 214);
     border-bottom: 2px solid #FFF;
+}
+
+.popup-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 10;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.533);
+    }
+
+    .popup {
+        padding: 20px;
+        background: white;
+        z-index: 11;
+        border-radius: 16px;
+        width: 90%;
+
+        p{
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .popup-btns{
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        button {
+            width: 100%;
+            background: rgba(104, 118, 244, 0.2);
+            border: none;
+            color: rgb(104, 119, 244);
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 6px 14px;
+        }
+    }
 }

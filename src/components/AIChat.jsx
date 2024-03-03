@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+import { doc, getDocs, addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { auth, db } from '../firbase-config';
 
 const genAI = new GoogleGenerativeAI("AIzaSyBezxjI1F07jJwKpzZcm3h7M-eivh-o_RA");
@@ -11,6 +11,7 @@ export default function AIChats({ room, setRoom, signUserOut }) {
   const [newMessage, setNewMessage] = useState("")
   const [messages, setMessages] = useState([])
   const [chat, setChat] = useState(null)
+  const [isPopupVisible, setIsPopupVisible] = useState(false)
 
   const messagesRef = collection(db, "AIChats")
   const messagesContainerRef = useRef(null);
@@ -38,10 +39,7 @@ export default function AIChats({ room, setRoom, signUserOut }) {
       })
 
       const newChat = model.startChat({
-        history,
-        generationConfig: {
-          maxOutputTokens: 100,
-        },
+        history
       });
 
       setChat(newChat)
@@ -49,7 +47,7 @@ export default function AIChats({ room, setRoom, signUserOut }) {
     })
 
     return () => unsuscribe();
-  }, [])
+  }, [isPopupVisible])
 
   useEffect(() => {
     scrollToBottom();
@@ -74,7 +72,6 @@ export default function AIChats({ room, setRoom, signUserOut }) {
       setNewMessage("")
       const result = await chat.sendMessage(prompt);
       const text = await result.response.text();
-
       await addDoc(messagesRef, {
         createdAt: serverTimestamp(),
         user: 'AI',
@@ -82,10 +79,23 @@ export default function AIChats({ room, setRoom, signUserOut }) {
         role: 'model',
         parts: text,
       });
+      // console.log(text);
       scrollToBottom();
     } catch (error) {
       console.error("Error processing message:", error);
     }
+  }
+
+  const handleDeleteHistory = async () => {
+    const queryMessages = query(messagesRef, where('chatUser', '==', auth.currentUser.displayName));
+    const snapshot = await getDocs(queryMessages)
+
+    snapshot.forEach(async (docItem) => {
+      await deleteDoc(doc(db, "AIChats", docItem.id))
+    });
+
+    setMessages([])
+    setIsPopupVisible(false)
   }
 
 
@@ -96,9 +106,9 @@ export default function AIChats({ room, setRoom, signUserOut }) {
   return (
     <div className="chats">
       <div className="header"><h2>Chat with <br /> {room}</h2></div>
-      <div className="warning">
+      {/* <div className="warning">
         <p>Google's Gemini AI is at it's Early stage and this Project is still in beta. The bot might sometimes respond with blank or falsy messages</p>
-      </div>
+      </div> */}
 
       <div className='messages' ref={messagesContainerRef}>
         {messages.map((message) =>
@@ -119,6 +129,21 @@ export default function AIChats({ room, setRoom, signUserOut }) {
       <div className="room-out">
         <button onClick={() => setRoom(null)}>Leave</button>
       </div>
+      <div className="clear-ai">
+        <button onClick={() => setIsPopupVisible(true)}>Clear Chats</button>
+      </div>
+
+      {isPopupVisible &&
+        <div className='popup-window'>
+          <div className="overlay"></div>
+          <div className="popup">
+            <p>Are you sure you wan't to clear the chats?</p>
+            <div className="popup-btns">
+              <button onClick={() => setIsPopupVisible(false)}>No</button>
+              <button onClick={handleDeleteHistory}>Clear Chats</button>
+            </div>
+          </div>
+        </div>}
     </div>
   )
 }
