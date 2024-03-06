@@ -77,7 +77,7 @@ function Auth({ setIsAuth }) {
             <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter your Email' />
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter your Password' />
-            <button type="submit" className='button-main'>SignIn</button>
+            <button type="submit" className='button-main'>Signup</button>
           </form>
           <div className='switch-section'>
             <p>Already Have an account?</p>

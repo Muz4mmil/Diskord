@@ -51,11 +51,13 @@ export default function Chats({room, setRoom, signUserOut}) {
     <div className="chats">
         <div className="header"><h2>Welcome to room <br /> {room}</h2></div>
         <div className='messages' ref={messagesContainerRef}>
-            {messages.map((message)=>
+            {messages.length > 0 ? messages.map((message)=>
             <div className={"message animate__animated animate__fadeInUp animate__faster " + ( message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
                 <span className='user'>{message.user.split(" ")[0]} : </span>{message.text}
             </div>
-            )}
+            ) : <div className='hint'>
+            Ask your your friends to join the same Room and start chatting with them
+          </div>}
         </div>
         <form onSubmit={handleSubmit} className="new-message">
             <input placeholder='Enter Message' className="new-message-input" onChange={(e)=> setNewMessage(e.target.value)} value={newMessage}/>

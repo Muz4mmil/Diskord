@@ -111,11 +111,13 @@ export default function AIChats({ room, setRoom, signUserOut }) {
       </div> */}
 
       <div className='messages' ref={messagesContainerRef}>
-        {messages.map((message) =>
+        {messages.length > 0 ? messages.map((message) =>
           <div className={"message animate__animated animate__fadeInUp animate__faster " + (message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
             <span className='user'>{message.user.split(" ")[0]} : </span>{message.parts}
           </div>
-        )}
+        ) : <div className='hint'>
+          Ask your questions or Drop a Hi to AI
+        </div>}
 
       </div>
       <form onSubmit={handleSubmit} className="new-message">

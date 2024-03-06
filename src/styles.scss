@@ -106,6 +106,31 @@ body {
     }
 }
 
+.welcome{
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    width: 350px;
+    text-align: center;
+
+    h1{
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.808);
+        
+        span{
+            font-size: 46px;
+            background: $backgroundMain;
+            background-clip: text;
+			-webkit-text-fill-color: transparent;
+			-webkit-background-clip: text;
+        }
+    }
+    p{
+        font-weight: 500;
+    }
+}
+
 .room {
     padding: 20px;
     background: white;
@@ -232,6 +257,14 @@ body {
             border-radius: 2px;
         }
 
+        .hint{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            opacity: 0.5;
+            transform: translate(-50%, -50%);
+        }
 
         .message {
             width: max-content;

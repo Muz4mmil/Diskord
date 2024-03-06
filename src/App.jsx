@@ -39,6 +39,10 @@ function App() {
       (<Chats room={room} setRoom={setRoom} signUserOut={signUserOut} />)
        : (
         <>
+          <div className="welcome">
+            <h1>Welcome to <br /><span>Diskord</span></h1>
+            <p>Join a Room and chat with friends or chill out with AI</p>
+          </div>
           <div className="room">
             <p>Enter Room Name</p>
             <input ref={roomInputRef} />
