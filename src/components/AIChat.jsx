@@ -79,7 +79,7 @@ export default function AIChats({ room, setRoom, signUserOut }) {
         role: 'model',
         parts: text,
       });
-      // console.log(text);
+      
       scrollToBottom();
     } catch (error) {
       console.error("Error processing message:", error);

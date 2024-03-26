@@ -14,7 +14,6 @@ function Auth({ setIsAuth }) {
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider)
-      console.log(result);
       cookies.set('auth-token', result.user.refreshToken)
       setIsAuth(true)
     } catch (err) {
@@ -41,7 +40,6 @@ function Auth({ setIsAuth }) {
       await updateProfile(result.user, {
         displayName: name
       })
-      console.log(result);
       cookies.set('auth-token', result.user.refreshToken)
       setIsAuth(true)
     } catch (err) {
