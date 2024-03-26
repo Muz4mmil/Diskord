@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { doc, getDocs, addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 import { auth, db } from '../firbase-config';
 
-const genAI = new GoogleGenerativeAI("AIzaSyBezxjI1F07jJwKpzZcm3h7M-eivh-o_RA");
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 export default function AIChats({ room, setRoom, signUserOut }) {

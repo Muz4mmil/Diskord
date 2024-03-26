@@ -4,16 +4,15 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.0.0/firebase
 import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD1xqIk_ycImXsX2z-Rf5joAxwCeZf9ka0",
-    authDomain: "fbchat-a168e.firebaseapp.com",
-    projectId: "fbchat-a168e",
-    storageBucket: "fbchat-a168e.appspot.com",
-    messagingSenderId: "292910452290",
-    appId: "1:292910452290:web:c7fc86b45e83a3cca427db",
-    measurementId: "G-3GD7CM52VF"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);

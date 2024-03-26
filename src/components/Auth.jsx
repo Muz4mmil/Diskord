@@ -26,7 +26,6 @@ function Auth({ setIsAuth }) {
     e.preventDefault();
     try {
       const result = await signInWithEmailAndPassword(auth, email, password)
-      console.log(result);
       cookies.set('auth-token', result.user.refreshToken)
       setIsAuth(true)
     } catch (err) {
