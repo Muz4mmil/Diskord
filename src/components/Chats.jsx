@@ -49,7 +49,7 @@ export default function Chats({room, setRoom, signUserOut}) {
 
   return (
     <div className="chats">
-        <div className="header"><h2>Welcome to room <br /> {room}</h2></div>
+        <div className="header"><h2>Welcome to Room <br /> {room}</h2></div>
         <div className='messages' ref={messagesContainerRef}>
             {messages.length > 0 ? messages.map((message)=>
             <div className={"message animate__animated animate__fadeInUp animate__faster " + ( message.user === auth.currentUser.displayName ? "current-user" : "other-user")} key={message.id}>
